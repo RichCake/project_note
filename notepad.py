@@ -55,23 +55,11 @@ class Note(QMainWindow, Ui_MainWindow):
         self.btn_color.setCheckable(True)
         # ===================================================
 
-        # ===================================================
-        # проверка работы функций
-        # self.open_file() работает
-        # Работает
-        # self.pushButton.clicked.connect(self.set_subscript)
-        self.btn_help.clicked.connect(self.help)
-        # ===================================================
-
         # Сигналы от QMenu
         # ===================================================
         self.act_save.triggered.connect(self.save_file)
         self.act_save_as.triggered.connect(self.save_file)
         self.act_opn.triggered.connect(self.open_file)
-
-        # self.act_bold.triggered.connect(self.set_bold)
-        # self.act_italic.triggered.connect(self.set_italic)
-        # self.act_underlined.triggered.connect(self.set_underline)
         # ===================================================
 
         # Обрабатываем сигнал от toolBtn
@@ -348,7 +336,6 @@ class Note(QMainWindow, Ui_MainWindow):
         format.setFontUnderline(not self.btn_underlined.isChecked())
         self.set_format(format)
 
-    # РАБОТАЕТ
     def set_font(self):
         # Event
         if self.prog_list == []:
@@ -421,7 +408,6 @@ class Note(QMainWindow, Ui_MainWindow):
         cursor.mergeCharFormat(format)
         self.plainTextEdit.mergeCurrentCharFormat(format)
 
-    # Работает
     def set_height(self):
         # Event
         if self.prog_list == [1]:
@@ -453,7 +439,6 @@ class Note(QMainWindow, Ui_MainWindow):
         self.lcdNumber.display(h)
         cursor.mergeCharFormat(font)
 
-    # Работает
     def open_file(self):
         fname = QFileDialog.getOpenFileName(self, "Открытие файла", filter='Текст (*.txt)')[0]
         self.file_name = fname
@@ -466,7 +451,6 @@ class Note(QMainWindow, Ui_MainWindow):
         except FileNotFoundError:
             print('Отмена')
 
-    # Работает
     def save_file(self):
         if self.file_name == '' or self.sender().iconText() == 'Сохранить как...':
             fname = QFileDialog.getSaveFileName(self, "Открытие файла")[0]
