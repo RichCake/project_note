@@ -1,14 +1,12 @@
 import sys
 
-
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QColorDialog
-from PyQt5.QtGui import QFont, QTextCursor, QTextCharFormat
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont, QTextCharFormat, QTextCursor
+from PyQt5.QtWidgets import QApplication, QColorDialog, QFileDialog, QMainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Note import Ui_MainWindow
 
 
-class Note(QMainWindow, Ui_MainWindow):
+class Note(QMainWindow):
     def __init__(self):
         super(Note, self).__init__()
 
@@ -193,6 +191,7 @@ class Note(QMainWindow, Ui_MainWindow):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.btn_help = QtWidgets.QPushButton(self.verticalLayoutWidget_2)
         self.btn_help.setObjectName("btn_help")
+        self.btn_help.clicked.connect(self.help)
         self.horizontalLayout_4.addWidget(self.btn_help)
         self.progressBar = QtWidgets.QProgressBar(self.verticalLayoutWidget_2)
         self.progressBar.setProperty("value", 0)
